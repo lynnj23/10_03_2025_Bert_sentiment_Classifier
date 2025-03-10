@@ -44,7 +44,7 @@ print(tokenized_ds["train"][0]["input_ids"])
 
 # Replace <MASK> with your code freezes the base model
 
-from transformers import AutoModelForSequenceClassification
+
 
 model = AutoModelForSequenceClassification.from_pretrained(
     "distilbert-base-uncased",
@@ -88,7 +88,7 @@ trainer = Trainer(
     train_dataset=tokenized_ds["train"],
     eval_dataset=tokenized_ds["test"],
     tokenizer=tokenizer,
-    data_collator=DataCollatorWithPadding(tokenizer),
+    data_collator=DataCollatorWithPadding(tokenizer=tokenizer),
     compute_metrics=compute_metrics,
 )
 
